@@ -1,0 +1,24 @@
+{% macro pagination(total, current, url) %}
+    {% if total > 1 %}
+      {% set nearbyPagesLimit = 4 %}
+      <nav aria-label="...">
+      <ul class="pagination">
+        {% for i in 1..total %}
+          {% if 0 == (current - nearbyPagesLimit) - loop.index %}
+            <li class="page-item"><a href="{{ (url ~ '&page=1')|e }}">1</a></li>
+            <li class="page-item"><span>…</span></li>
+          {% elseif 0 == (current + nearbyPagesLimit) - loop.index  and (current + nearbyPagesLimit) < total %}
+            <li class="page-item"><span>…</span></li>
+          {% elseif 0 < (current - nearbyPagesLimit) - loop.index %}
+          {% elseif 0 > (current + nearbyPagesLimit) - loop.index %}
+          {% else %}
+            <li class="page-item"><a href="{{ url ~ '&page=' ~  loop.index }}" {% if current == loop.index  %} class="active"{% endif %}>{{ loop.index }}</a></li>
+          {% endif %}
+        {% endfor %}
+        {% if current != total  and (current + nearbyPagesLimit) < total %}
+          <li class="page-item"><a href="{{ (url ~ 'page=' ~ total)|e  }}">{{ total }}</a></li>
+        {% endif %}
+      </ul>
+      </nav>
+    {% endif %}
+{% endmacro %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+            <h1>Product Search</h1>
+            <form  method="GET" action="{{ url('product_results') }}" class="form-inline">
+            <div class="input-group">
+                <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </div>
+            </form>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% import 'components/macros.html.twig' as macros %}
+    <h1>Product Search Results</h1>
+
+    {% if productListing is empty %}
+        <div>
+            No Search Results found
+        </div>
+    {% else %}
+        {% include 'product_search/results_page_form.html.twig' %}
+        {% include 'components/listing.html.twig' with {'listing': productListing.data}  %}
+        {% set totalPages = (productListing.meta.total_count/app.request.query.get('resultsPerPage', 10))|round %}
+        {{ macros.pagination(totalPages, 1,  url('product_results', {'search':app.request.query.get('search'), 'resultsPerPage': app.request.query.get('resultsPerPage')})) }}
+    {% endif %}
+{% endblock %}
