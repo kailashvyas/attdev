@@ -31,3 +31,7 @@ services:
     App\Service\ApiService:
         arguments:
             $urlDefinitions: "%url_definitions%"
+
+    App\EventListener\LocaleListener:
+        tags:
+            - { name: kernel.event_listener, method: onKernelRequest, event: kernel.request }

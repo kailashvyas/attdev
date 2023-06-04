@@ -19,10 +19,10 @@ class ApiServiceTest extends KernelTestCase
      */
 	public function testGetApiResponse()
 	{
-        $urlDefinitions = ['search_definition' => 'https://global.atdtravel.com/api/products' ];
-        $this->apiService = new ApiService($urlDefinitions);
-        $params = ['title'=>'london', 'offset'=>0, 'limit'=>10, 'geo'=> 'en'];
-        $response = $this->apiService->getApiResponse('search_definition', $params);
-        $this->assertTrue($response->meta->count > 0);
+                $urlDefinitions = ['search_definition' => 'https://global.atdtravel.com/api/products' ];
+                $this->apiService = new ApiService($urlDefinitions);
+                $params = ['title'=>'london', 'offset'=>0, 'limit'=>10, 'geo'=> 'en'];
+                $response = $this->apiService->getApiResponse('search_definition', $params);
+                $this->assertTrue($response->meta->count > 0);
 	}
 }

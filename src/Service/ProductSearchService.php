@@ -16,6 +16,8 @@ class ProductSearchService
 
     const LOCALES = ['en'=>'en', 'en-ie'=>'en-ie', 'de-de'=>'de-de'];
 
+    const DEFAULT_GEO = 'en';
+
     /**
      * Api Service
      *
@@ -47,10 +49,10 @@ class ProductSearchService
         if (isset(self::LOCALES[$locale])) {
             $geo = self::LOCALES[$locale];
         } else {
-            $geo = 'en';
+            $geo = self::DEFAULT_GEO;
         }
-        $params['geo'] = 'en';
-        $params['title'] = $request->query->get('search', '');
+        $params['geo'] = $geo;
+        $params['title'] = $request->query->get('search');
         $resultsPerPage = $request->query->get('resultsPerPage', self::LIMIT);
         $params['limit'] = ($resultsPerPage > self::MAX_LIMIT) ? self::LIMIT : $resultsPerPage;
         $params['offset'] = (1 == $page) ? 0 : (($page - 1) *  $params['limit'] + 1);

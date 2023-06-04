@@ -6,13 +6,30 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Service\ProductSearchService;
 
+
+/**
+ * ProductSearchController
+ */
 class ProductSearchController extends AbstractController
 {
-    public function search(Request $request, ProductSearchService $productSearchService): Response
+    /**
+     * Search Page
+     *
+     * @return Response
+     */
+    public function search(): Response
     {
         return $this->render('product_search/search.html.twig');
     }
 
+    /**
+     * Search Results Page
+     *
+     * @param Request              $request
+     * @param ProductSearchService $productSearchService
+     *
+     * @return Response
+     */
     public function searchResults(Request $request, ProductSearchService $productSearchService): Response
     {
         $productListing = $productSearchService->getSearchResults($request);

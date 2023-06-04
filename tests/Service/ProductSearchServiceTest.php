@@ -18,11 +18,11 @@ class ProductSearchServiceTest extends KernelTestCase
      */
 	public function testGetSearchResults()
 	{
-        $urlDefinitions = ['search_definition' => 'https://global.atdtravel.com/api/products' ];
-        $apiService = new ApiService($urlDefinitions);
-        $productSearchService = new ProductSearchService($apiService);
-        $request = Request::create('http://127.0.0.1:83/?search=london');
-        $response = $productSearchService->getSearchResults($request);
-        $this->assertTrue($response->meta->count > 0);
+                $urlDefinitions = ['search_definition' => 'https://global.atdtravel.com/api/products' ];
+                $apiService = new ApiService($urlDefinitions);
+                $productSearchService = new ProductSearchService($apiService);
+                $request = Request::create('http://127.0.0.1:83/?search=london');
+                $response = $productSearchService->getSearchResults($request);
+                $this->assertTrue($response->meta->count > 0);
 	}
 }

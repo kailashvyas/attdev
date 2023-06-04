@@ -45,7 +45,6 @@ class ApiService
         $qs = http_build_query($params);
 
         $url = $url. '?' . $qs;
-
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_VERBOSE, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
