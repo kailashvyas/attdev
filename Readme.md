@@ -31,7 +31,7 @@ Docker setup - (Work in Progress. Docker started correctly for me but might need
 
 Unit testing
 
-1. Run command bin/phpunit. This will run 2 tests for ProductSearchServiceTest and ApiServiceTest
+1. Run command php bin/phpunit. This will run 4 tests for ProductSearchServiceTest, ApiServiceTest and ProductSearchControllerTest
 
 
 ## Application details
