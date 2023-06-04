@@ -12,6 +12,6 @@
         {% include 'product_search/results_page_form.html.twig' %}
         {% include 'components/listing.html.twig' with {'listing': productListing.data}  %}
         {% set totalPages = (productListing.meta.total_count/app.request.query.get('resultsPerPage', 10))|round %}
-        {{ macros.pagination(totalPages, 1,  url('product_results', {'search':app.request.query.get('search'), 'resultsPerPage': app.request.query.get('resultsPerPage')})) }}
+        {{ macros.pagination(totalPages, app.request.query.get('page',1),  url('product_results', {'search':app.request.query.get('search'), 'resultsPerPage': app.request.query.get('resultsPerPage', 10)})) }}
     {% endif %}
 {% endblock %}

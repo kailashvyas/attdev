@@ -13,15 +13,19 @@ Install dependencies
 
 Start application
 
-symfony server:start
+1. symfony server:start
+2. Run `http://127.0.0.1:8000/`
 
-Docker setup - (Work in Progress. Docker started correctly for me but might need some testing) 
+
+Docker setup - (Works on 8080 port) 
 
 1. If not already done, [install Docker Compose](https://docs.docker.com/compose/install/) (v2.10+)
-2. Run `docker compose build --pull --no-cache` to build fresh images
-3. Run `docker compose up` (the logs will be displayed in the current shell)
-4. Open `https://localhost` in your favorite web browser and [accept the auto-generated TLS certificate](https://stackoverflow.com/a/15076602/1352334)
-5. Run `docker compose down --remove-orphans` to stop the Docker containers.
+2. Run `docker-compose build` to build images
+3. Run `docker-compose run attdev_php composer install` for docker composer install
+4. Run `docker-compose run attdev_php yarn build` for docker yarn build
+5. Run `docker-compose up` (the logs will be displayed in the current shell)
+6. Open `http://localhost:8080` in your favorite web browser
+7. Run `docker-compose down` to stop the Docker containers.
 
 ## Application Summary
 
