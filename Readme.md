@@ -6,15 +6,16 @@ Product Search Application
 
 Install dependencies
 
-1. composer install
+1. composer install (https://getcomposer.org/doc/00-intro.md composer install instructions)
 2. npm install
 3. npm install --global yarn
 4. yarn build
+5. Install symfony cli https://symfony.com/download_
 
 Start application
 
 1. symfony server:start
-2. Run `http://127.0.0.1:8000/`
+2. Run `http://127.0.0.1:8000/` in browser
 
 
 Docker setup - (Works on 8080 port) 
