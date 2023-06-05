@@ -2,7 +2,7 @@
 
 {% block body %}
     {% import 'components/macros.html.twig' as macros %}
-    <h1>Product Search Results</h1>
+    <h1>{{ 'messages.product_search_results'|trans }}</h1>
 
     {% if productListing is empty %}
         <div>
